@@ -19,7 +19,9 @@ function SignUp() {
                   type="password"
                   placeholder="Password"
                 />
-                <button className="bg-red-500 py-3 px-6 rounded font-bold mt-4 ">Sign Up</button>
+                <button className="bg-red-500 py-3 px-6 rounded font-bold mt-4 text-white">
+                  Sign Up
+                </button>
                 <div className="flex items-center justify-between mt-3 text-white">
                   <p>
                     <input type="checkbox" className="mr-1" /> Remember me
