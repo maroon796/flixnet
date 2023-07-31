@@ -12,7 +12,11 @@ function Login() {
           <div className="max-w-[320px] mx-auto py-16">
             <h1 className="text-white text-3xl font-bold">Sign In</h1>
             <form className="w-full flex flex-col py-4">
-              <input className="p-3 my-2 bg-gray-600 rounded" type="email" placeholder="Email" />
+              <input
+                className="p-3 text-white my-2 bg-gray-600 rounded"
+                type="email"
+                placeholder="Email"
+              />
               <input
                 className="p-3 my-2 bg-gray-600 rounded"
                 type="password"
