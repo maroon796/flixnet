@@ -1,7 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { UserAuth } from '../context/AuthContext';
 
 const Navbar = () => {
+  const { user, logOut } = UserAuth();
+  console.log(user);
+
   return (
     <div className="flex items-center justify-between p-4 z-[100] absolute w-full">
       <Link to="/">
@@ -9,7 +13,11 @@ const Navbar = () => {
       </Link>
       <div>
         <Link to="/login">
-          <button className="text-white pr-4">Sign In</button>
+          {user ? (
+            <button className="text-white pr-4">Account</button>
+          ) : (
+            <button className="text-white pr-4">Sign In</button>
+          )}
         </Link>
         <Link to="/signup">
           <button className="bg-red-600 text-white px-4 py-2 rounded cursor-pointer">
