@@ -1,4 +1,23 @@
+import { useState } from 'react';
+import { UserAuth } from '../context/AuthContext';
+import { useNavigate } from 'react-router-dom';
+
 function Login() {
+  const { logIn, user } = UserAuth();
+  const navigate = useNavigate();
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  const handleLogin = async (e) => {
+    e.preventDefault();
+    try {
+      await logIn(email, password);
+      navigate('/');
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <div className="w-full h-screen">
       <img
@@ -11,14 +30,16 @@ function Login() {
         <div className="max-w-[450px] h-[30%] bg-black/75 mx-auto">
           <div className="max-w-[320px] mx-auto py-16">
             <h1 className="text-white text-3xl font-bold">Sign In</h1>
-            <form className="w-full flex flex-col py-4">
+            <form onSubmit={handleLogin} className="w-full flex flex-col py-4">
               <input
+                onChange={(e) => setEmail(e.target.value)}
                 className="p-3 text-white my-2 bg-gray-600 rounded"
                 type="email"
                 placeholder="Email"
               />
               <input
-                className="p-3 my-2 bg-gray-600 rounded"
+                onChange={(e) => setPassword(e.target.value)}
+                className="p-3 my-2 bg-gray-600 rounded text-white"
                 type="password"
                 placeholder="Password"
               />
